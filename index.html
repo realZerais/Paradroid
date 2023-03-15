@@ -1,0 +1,247 @@
+
+<!-- 
+    Change / Feature 1(done)
+    Additional Backgrounds  - more background to choose from. 
+
+    Change / Feature 2
+    Adding Stages - different boss and minions.
+
+    Change / Feature 3
+    Adding More Boss - different stages has different boss.
+
+    Change / Feature 4
+    Adding Minions - before defeating the boss, you have to defeat its minions first.
+
+    Change / Feature 5
+    Adding items - for stats of the player
+
+    Change / Feature 6 (done)
+    Adding Currency - to buy items.
+
+    Change / Feature 7 
+    Adding Skins - to modify how the player looks
+
+    Change / Feature 8 (done)
+    Speed Mechanics - to identify who attacks first.
+
+    Change / Feature 9 (done)
+    Better Main Menu UI - adding exit, how to play, etc.
+
+    Change / Feature 10 
+    Adding pet - pets will serve different purpose (heal, attack, defend, etc.)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attack Game</title>
+
+    <style>
+        @font-face {
+            font-family: charybdis;
+            src: url(font/charybdis/chary___.ttf);
+        }
+        html{
+            margin: 0;
+        }
+        body{
+            margin: 0;
+            background-color: rgb(27, 27, 27);
+           
+        }
+        canvas{
+            width: 640px;
+            height: 300px;
+            border: 0.5px solid;
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(61, 215, 153);
+        }
+        h1{
+           width: 75px;
+           height: 30px;
+           left: 47%;
+           top: 15%;
+           color: rgba(245, 244, 238, 0.842);
+           background-color: rgba(0, 0, 0, 0.447);
+           border: solid;
+           padding: 3px;
+           position: absolute;
+           font-family: charybdis;
+           text-align: center;
+           cursor: pointer;
+       }
+        h1:hover{
+            color: aliceblue;
+        }
+        .titleScreen{
+            visibility: visible;
+            padding-top: 4px;
+        }
+        .titleScreen h2{
+            width: 120px;
+            height: 25px;
+            color: rgba(245, 244, 238, 0.842);
+            background-color: rgba(0, 0, 0, 0.447);
+            border: solid;
+            padding: 3px;
+            position: absolute;
+            font-family: charybdis;
+            text-align: center;
+            cursor: pointer;
+            
+   
+        }
+        #startBtn{  
+            top: 20%;
+            left: 45%;
+            
+        }
+        #changeBG{
+        
+            top: 30%;
+            left: 45%;
+        }
+        #howTP-container{
+            width: 575px;
+            height: 180px;
+            color: rgba(245, 244, 238, 0.842);
+            background-color: rgba(0, 0, 0, 0.447);
+            position: absolute;
+            top: 12%;
+            left: 27%;
+
+            visibility: hidden;
+        }
+        #howTP{
+            top: 40%;
+            left: 45%;
+        }
+        #back{
+            visibility: hidden;
+            top: 50%;
+            left: 45%;
+        }
+        #shop{
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            margin-top: 5%;
+            margin-left: 26%;
+        }
+
+
+        #attack{
+            width: 85px;
+            top: 65%;
+            left: 30%;
+            visibility: hidden;
+            cursor: url("spo15.cur"), default;
+        }
+
+        #skill{  
+            top: 65%;
+            left: 47%;
+            visibility: hidden;
+        }
+        #pass{
+            top: 75%;
+            left: 47%;
+            visibility: hidden;
+            cursor: url("oth91.cur"), default;
+        }
+        #drink{  
+            top: 65%;
+            left: 65%;
+            visibility: hidden;
+            cursor: url("foo135.cur"), default;
+        }     
+        #surrender{  
+            top: 85%;
+            left: 47%;
+            visibility: hidden;
+        }  
+
+        #main-menu{
+            width: 150px;
+            height: 30px;
+            top: 20%;
+            left: 44%;
+            color: rgb(242, 253, 253); 
+            visibility: hidden;
+        }
+        
+        #details{
+            width: 300px;
+            height: 400px;
+            margin: 1%;
+            margin-top: 5%;
+            text-align: center;
+            color: white;
+            visibility: hidden; 
+        }
+
+       
+        
+    </style>
+</head>
+<body>
+
+    
+    <canvas></canvas>
+    <div class="titleScreen">
+        <h2 id="changeBG" onclick="titleNum++">ChangeBG</h2>
+        <h2 id="startBtn" onclick="start()">START</h2>
+        <h2 id="howTP" onclick="howToPlay()">How To Play</h2>
+        <h2 id="back" onclick="back()">Back</h2>
+        <a href="shop.html"><img id="shop" src="shopping-cart.png" alt="shop"></a>
+
+        <div id="howTP-container">
+            <p>Gameplay: You are being hunted by a cyborg police and you have to destroy it.</p>
+            <p>Mechanics: You and the enemy will take turns attacking. Every move costs energy. 
+                When the timer rans out, it is considered as pass. The green bar is your health bar, while the 
+                while bar is your energy bar.
+            </p>
+            <p>Controls:</p>
+            <p>ATTACK: deals small amount of damage</p>
+            <p>SKill: deals massive amount of damage</p>
+            <p>Drink: heals a little bit and deals a small amount of damage</p>
+        </div>
+        
+
+    </div>
+
+    <div id="details">
+        <h2>Energy Cost:</h2>
+        <h3>Attack: 20% <br> Skill: 100% <br>Drink: 50% <br> Pass: 0%</h3>
+        <h4><br> Note: You gain 20% Energy each turn. <br> When timer reaches to 1, pass will be declared. </h4>
+    </div>
+
+    
+  
+    
+
+
+    <h1 id="attack" onclick="player.attack()" title="Normal Attack: deals small amount of damage."> ATTACK </h1>
+    <h1 id="skill" onclick="player.skill()" title="Spinning Attack: deals massive amount of damage."> SKILL </h1>
+    <h1 id="drink" onclick="player.drink()" title="Drink Attack: heals a little bit and deals a small amount of damage."> DRINK </h1>
+    <h1 id="pass" onclick="player.pass()" title="PASS: skips the turn and do nothing."> PASS </h1>
+    <h1 id="surrender" onclick="surrender()">End</h1>
+
+    
+    <h1 id="main-menu" onclick="main_menu()">MAIN MENU</h1>
+
+    
+
+    
+
+    <script src="index.js"></script>
+    
+
+</body>
+</html>

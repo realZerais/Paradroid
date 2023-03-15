@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOP</title>
+</head>
+<style>
+    @font-face {
+        font-family: charybdis;
+        src: url(font/charybdis/chary___.ttf);
+    }
+    html{
+        margin: 0;
+    }
+    body{
+        padding: 1%;
+        background-color: rgb(27, 27, 27);
+       
+    }
+    a{
+        text-decoration: none;
+    }
+    h1{
+        width: 75px;
+        height: 30px;
+        color: rgba(245, 244, 238, 0.842);
+        padding: 3px;
+        font-family: charybdis;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    hr{
+        color: white;
+    }
+    .coin-container h2{
+        width: auto;
+        height: 30px;
+        color: rgba(245, 244, 238, 0.842);
+        font-family: charybdis;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #coin-img{
+        position: absolute;
+        margin-left: 1%;        
+    }
+    .coin-container h2{
+        border: none;
+    }
+    #weapons h2{
+        width: auto;
+        height: 30px;
+        color: rgba(245, 244, 238, 0.842);
+        font-family: charybdis;
+    }
+    #pets h2{
+        width: auto;
+        height: 30px;
+        color: rgba(245, 244, 238, 0.842);
+        font-family: charybdis; 
+    }
+    #skin h2{
+        width: auto;
+        height: 30px;
+        color: rgba(245, 244, 238, 0.842);
+        font-family: charybdis; 
+    }
+
+    
+   
+</style>
+<body>
+    <a href="index.html"><h1 id="home">HOME</h1></a>
+    <div class="coin-container">
+        <h2 id="coins">Coins: </h2>
+    </div>
+    
+    <hr>
+    <div class="weapons-container">
+        <h1>WEAPONS</h1>
+        <div id="weapons">
+            <h2>weapon 1: price: 500</h2> <button onclick="buy(500)"> BUY </button>
+            <h2>weapon 2: price: 300</h2> <button onclick="buy(300)"> BUY </button>
+            <h2>weapon 3: price: 400</h2> <button onclick="buy(400)"> BUY </button>
+            <h2>weapon 4: price: 600</h2> <button onclick="buy(600)"> BUY </button>
+        </div>
+        
+    </div>  
+    <hr>
+    <div class="pets-container">
+        <h1>PETS</h1>
+        <div id="pets">
+            <h2>pet 1: price: 1000</h2> <button onclick="buy(1000)"> BUY </button>
+            <h2>pet 2: price: 1500</h2> <button onclick="buy(1500)"> BUY </button>
+            <h2>pet 3: price: 2500</h2> <button onclick="buy(2500)"> BUY </button>
+            <h2>pet 4: price: 3000</h2> <button onclick="buy(3000)"> BUY </button>
+        </div>
+    </div>    
+    <hr>
+    <div class="skins">
+        <h1>SKINS</h1>
+        <div id="skin">
+            <h2>skin 1: price: 2000</h2> <button onclick="buy(2000)"> BUY </button>
+            <h2>skin 2: price: 2000</h2> <button onclick="buy(2000)"> BUY </button>
+            <h2>skin 3: price: 2000</h2> <button onclick="buy(2000)"> BUY </button>
+            <h2>skin 4: price: 2000</h2> <button onclick="buy(2000)"> BUY </button>
+        </div>
+    </div>    
+    <hr>
+
+    <script>
+        var coin = 2000;
+        // var weapons = 500;
+        // var pets = 1000;
+        // var skins = 999;
+        coins.innerHTML = "Coins: " + coin;
+
+        function buy(amount){
+            
+            if(amount>coin){
+                alert("Not Enough Coins!");
+                
+            }else{
+                coin-=amount;
+                coins.innerHTML = "Coins: " + coin;
+            }
+            
+        }
+        
+    </script>
+</body>
+</html>
