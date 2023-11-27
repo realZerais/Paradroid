@@ -1,5 +1,5 @@
 # Paradroid
 game I made for school project
 
-# CLICK LINK TO PLAY
+# LINK
 realzerais.github.io/Paradroid/
